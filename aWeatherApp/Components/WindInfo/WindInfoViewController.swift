@@ -20,12 +20,12 @@ class WindInfoViewController: UIViewController, Componentable {
     @IBOutlet private var speed: UILabel!
 
     // MARK: Componentable
+    static var storyboard: String = "WindInfo"
+
     var viewModel: WindInfoViewModelType! {
         didSet {
             degrees.text = self.viewModel.degrees
             speed.text = self.viewModel.speed
         }
     }
-    
-    static var storyboard: String = "WindInfo"
 }

@@ -45,6 +45,9 @@
 		CB39C9B622AC2290002637DE /* TestWindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9B522AC2290002637DE /* TestWindModel.swift */; };
 		CB39C9B822AC2501002637DE /* no_data.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39C9B722AC2501002637DE /* no_data.json */; };
 		CB39C9BA22AC25A0002637DE /* WindInfoViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9B922AC25A0002637DE /* WindInfoViewModelTest.swift */; };
+		CB39C9BD22AC274E002637DE /* CloudInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB39C9BC22AC274E002637DE /* CloudInfo.storyboard */; };
+		CB39C9BF22AC2838002637DE /* CloudInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9BE22AC2838002637DE /* CloudInfoViewController.swift */; };
+		CB39C9C222AC2918002637DE /* CloudInfoViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9C122AC2918002637DE /* CloudInfoViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,9 @@
 		CB39C9B522AC2290002637DE /* TestWindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWindModel.swift; sourceTree = "<group>"; };
 		CB39C9B722AC2501002637DE /* no_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = no_data.json; sourceTree = "<group>"; };
 		CB39C9B922AC25A0002637DE /* WindInfoViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindInfoViewModelTest.swift; sourceTree = "<group>"; };
+		CB39C9BC22AC274E002637DE /* CloudInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CloudInfo.storyboard; sourceTree = "<group>"; };
+		CB39C9BE22AC2838002637DE /* CloudInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudInfoViewController.swift; sourceTree = "<group>"; };
+		CB39C9C122AC2918002637DE /* CloudInfoViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudInfoViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +326,7 @@
 		CB39C9A122AC15A6002637DE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CB39C9BB22AC2730002637DE /* CloudInfo */,
 				CB39C9AB22AC170B002637DE /* Component.swift */,
 				CB39C9A422AC160E002637DE /* WindInfo */,
 			);
@@ -340,6 +347,7 @@
 		CB39C9AD22AC1A0C002637DE /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CB39C9C022AC28EF002637DE /* CouldInfo */,
 				CB39C9AE22AC1A82002637DE /* WindInfo */,
 			);
 			path = Components;
@@ -352,6 +360,23 @@
 				CB39C9B922AC25A0002637DE /* WindInfoViewModelTest.swift */,
 			);
 			path = WindInfo;
+			sourceTree = "<group>";
+		};
+		CB39C9BB22AC2730002637DE /* CloudInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CB39C9BC22AC274E002637DE /* CloudInfo.storyboard */,
+				CB39C9BE22AC2838002637DE /* CloudInfoViewController.swift */,
+			);
+			path = CloudInfo;
+			sourceTree = "<group>";
+		};
+		CB39C9C022AC28EF002637DE /* CouldInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CB39C9C122AC2918002637DE /* CloudInfoViewControllerTests.swift */,
+			);
+			path = CouldInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB39C9A622AC161C002637DE /* WindInfo.storyboard in Resources */,
+				CB39C9BD22AC274E002637DE /* CloudInfo.storyboard in Resources */,
 				CB39C90C22ABF402002637DE /* LaunchScreen.storyboard in Resources */,
 				CB39C90922ABF402002637DE /* Assets.xcassets in Resources */,
 				CB39C90722ABF401002637DE /* Main.storyboard in Resources */,
@@ -573,6 +599,7 @@
 			files = (
 				CB39C9B422AC1AF4002637DE /* Factory+WindInfo.swift in Sources */,
 				CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */,
+				CB39C9BF22AC2838002637DE /* CloudInfoViewController.swift in Sources */,
 				CB39C90422ABF401002637DE /* ViewController.swift in Sources */,
 				CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */,
 				CB39C97A22AC06F6002637DE /* Wind.swift in Sources */,
@@ -599,6 +626,7 @@
 				CB39C96B22ABFCFE002637DE /* String+ToData.swift in Sources */,
 				CB39C98A22AC0964002637DE /* CloudsTests.swift in Sources */,
 				CB39C96D22ABFEA3002637DE /* WeatherInfoTests.swift in Sources */,
+				CB39C9C222AC2918002637DE /* CloudInfoViewControllerTests.swift in Sources */,
 				CB39C9B022AC1A9E002637DE /* WindInfoViewControllerTests.swift in Sources */,
 				CB39C9BA22AC25A0002637DE /* WindInfoViewModelTest.swift in Sources */,
 				CB39C9B222AC1AD1002637DE /* UIView+Find.swift in Sources */,

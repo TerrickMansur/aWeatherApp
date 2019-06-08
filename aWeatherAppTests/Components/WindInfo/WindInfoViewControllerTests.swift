@@ -29,12 +29,12 @@ class WindInfoViewControllerTests: QuickSpec {
                     
                     let speedValueLabel =
                         self.windInfo.viewCntroller.view
-                            .findSubView(restorationIdentifier: "speedValue")?
+                            .findSubView(restorationIdentifier: "speedLabel")?
                             .asLabel()
 
                     let degreesValueLabel =
                         self.windInfo.viewCntroller.view
-                            .findSubView(restorationIdentifier: "degreeValue")?
+                            .findSubView(restorationIdentifier: "degreesLabel")?
                             .asLabel()
                     
                     expect(degreesValueLabel?.text).to(equal("makes no sense"))
@@ -50,12 +50,12 @@ class WindInfoViewControllerTests: QuickSpec {
                 it("should set the correct values ") {
                     let speedValueLabel =
                         self.windInfo.viewCntroller.view
-                            .findSubView(restorationIdentifier: "speedValue")?
+                            .findSubView(restorationIdentifier: "speedLabel")?
                             .asLabel()
                     
                     let degreesValueLabel =
                         self.windInfo.viewCntroller.view
-                            .findSubView(restorationIdentifier: "degreeValue")?
+                            .findSubView(restorationIdentifier: "degreesLabel")?
                             .asLabel()
                     
                     expect(degreesValueLabel?.text).to(equal("311"))

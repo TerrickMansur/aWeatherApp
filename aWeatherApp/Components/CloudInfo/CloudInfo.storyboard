@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cRy-l9-VTv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Could Info View Controller-->
+        <scene sceneID="h66-8M-6vx">
+            <objects>
+                <viewController storyboardIdentifier="CloudInfo" id="cRy-l9-VTv" customClass="CouldInfoViewController" customModule="aWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QuV-cG-oJd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cloudiness (%)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwW-Gb-Cig">
+                                <rect key="frame" x="8" y="8" width="359" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="81w-N1-ASO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="percentageLabel" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihl-tY-HRV">
+                                <rect key="frame" x="8" y="36" width="359" height="106"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8oV-lc-b24" firstAttribute="trailing" secondItem="NwW-Gb-Cig" secondAttribute="trailing" constant="8" id="7xc-47-2Qk"/>
+                            <constraint firstItem="NwW-Gb-Cig" firstAttribute="leading" secondItem="8oV-lc-b24" secondAttribute="leading" constant="8" id="GgC-B4-LCQ"/>
+                            <constraint firstItem="8oV-lc-b24" firstAttribute="bottom" secondItem="ihl-tY-HRV" secondAttribute="bottom" constant="8" id="QVB-Bz-MmP"/>
+                            <constraint firstItem="8oV-lc-b24" firstAttribute="trailing" secondItem="ihl-tY-HRV" secondAttribute="trailing" constant="8" id="dlz-lL-Aj6"/>
+                            <constraint firstItem="NwW-Gb-Cig" firstAttribute="top" secondItem="8oV-lc-b24" secondAttribute="top" constant="8" id="hB4-rF-4et"/>
+                            <constraint firstItem="ihl-tY-HRV" firstAttribute="top" secondItem="NwW-Gb-Cig" secondAttribute="bottom" constant="8" id="hh7-50-IEU"/>
+                            <constraint firstItem="ihl-tY-HRV" firstAttribute="leading" secondItem="8oV-lc-b24" secondAttribute="leading" constant="8" id="qqF-vO-qX3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8oV-lc-b24"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="150"/>
+                    <connections>
+                        <outlet property="percentage" destination="ihl-tY-HRV" id="vyb-pw-AkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dRj-av-5ZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="80.799999999999997" y="134.93253373313345"/>
+        </scene>
+    </scenes>
+</document>
