@@ -32,6 +32,7 @@
 		CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C98B22AC0AB1002637DE /* Sys.swift */; };
 		CB39C99122AC0B05002637DE /* sys_test_data.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39C99022AC0B05002637DE /* sys_test_data.json */; };
 		CB39C99322AC0B37002637DE /* SysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C99222AC0B37002637DE /* SysTests.swift */; };
+		CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C99622AC0DD5002637DE /* EndpointType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CB39C98B22AC0AB1002637DE /* Sys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sys.swift; sourceTree = "<group>"; };
 		CB39C99022AC0B05002637DE /* sys_test_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sys_test_data.json; sourceTree = "<group>"; };
 		CB39C99222AC0B37002637DE /* SysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysTests.swift; sourceTree = "<group>"; };
+		CB39C99622AC0DD5002637DE /* EndpointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		CB39C90022ABF401002637DE /* aWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB39C99522AC0D9B002637DE /* Endpoints */,
 				CB39C95F22ABFB8C002637DE /* Models */,
 				CB39C90122ABF401002637DE /* AppDelegate.swift */,
 				CB39C90322ABF401002637DE /* ViewController.swift */,
@@ -249,6 +252,14 @@
 				CB39C99022AC0B05002637DE /* sys_test_data.json */,
 			);
 			path = Sys;
+			sourceTree = "<group>";
+		};
+		CB39C99522AC0D9B002637DE /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				CB39C99622AC0DD5002637DE /* EndpointType.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */,
 				CB39C90422ABF401002637DE /* ViewController.swift in Sources */,
 				CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */,
 				CB39C97A22AC06F6002637DE /* Wind.swift in Sources */,
