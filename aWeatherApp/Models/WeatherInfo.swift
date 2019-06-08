@@ -9,7 +9,13 @@
 import Foundation
 
 struct WeatherInfo: Codable {
-    init(data: Data) {
-        
-    }
+    
+    let id: Int?
+    let name: String?
+    let cod: Int?
+    
+    let main: Main?
+    let wind: Wind?
+    let clouds: Clouds?
+    let sys: Sys?
 }

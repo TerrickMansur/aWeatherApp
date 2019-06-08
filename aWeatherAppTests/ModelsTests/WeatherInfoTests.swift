@@ -19,10 +19,9 @@ class WeatherInfoTests: QuickSpec {
         override func spec() {
         describe("WeatherInfo") {
             beforeEach {
-                self.weatherInfo = WeatherInfo(data: self.loadJSONFile(file: "WeatherInfoTestData"))
             }
 
-            it("initializing it with correct data should populate it correctly") {
+            it("it can be decoded correctly with all data present given correctly") {
             }
         }
     }
