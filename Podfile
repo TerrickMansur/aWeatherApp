@@ -7,4 +7,11 @@ pod 'ReactiveKit'
 pod 'Bond'
 pod 'Alamofire'
 
+
+target 'aWeatherAppTests' do
+    inherit! :search_paths
+    pod 'Quick'
+    pod 'Nimble'
+  end
+
 end
