@@ -30,7 +30,7 @@ class MainTests: QuickSpec {
                 }
             }
             
-            it("it can be decoded correctly with all data given correct data") {
+            it("it can be decoded correctly with all data present given correctly") {
                 expect(self.main.temp).to(equal(285.514))
                 expect(self.main.pressure).to(equal(1013.75))
                 expect(self.main.humidity).to(equal(100))

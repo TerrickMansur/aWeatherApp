@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Main: Codable {
+struct Main: Codable {
     let temp: Double?
     let pressure: Double?
     let humidity: Double?
