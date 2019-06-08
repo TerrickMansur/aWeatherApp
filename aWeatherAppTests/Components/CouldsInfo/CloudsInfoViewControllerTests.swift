@@ -1,5 +1,5 @@
 //
-//  CloudInfoViewControllerTests.swift
+//  CloudsInfoViewControllerTests.swift
 //  aWeatherAppTests
 //
 //  Created by Terrick Mansur on 6/8/19.
@@ -13,23 +13,23 @@ import Nimble
 
 @testable import aWeatherApp
 
-private class TestableCloudInfoViewModel: CloudInfoViewModelType {
+private class TestableCloudsInfoViewModel: CloudsInfoViewModelType {
     let percentage: String
     init(percentage: String) {
         self.percentage = percentage
     }
 }
 
-class CloudnfoViewControllerTests: QuickSpec {
+class CloudsnfoViewControllerTests: QuickSpec {
     
-    var cloudInfo: CouldInfoViewController!
+    var cloudInfo: CouldsInfoViewController!
     
     override func spec() {
-        describe("CouldInfoViewController") {
+        describe("CouldsInfoViewController") {
             
             beforeEach {
-                self.cloudInfo = CouldInfoViewController.create(viewModelProvider: { vc in
-                    return TestableCloudInfoViewModel(percentage: "84")
+                self.cloudInfo = CouldsInfoViewController.create(viewModelProvider: { vc in
+                    return TestableCloudsInfoViewModel(percentage: "84")
                 })
             }
             

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Could Info View Controller-->
+        <!--Coulds Info View Controller-->
         <scene sceneID="h66-8M-6vx">
             <objects>
-                <viewController storyboardIdentifier="CloudInfo" id="cRy-l9-VTv" customClass="CouldInfoViewController" customModule="aWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CloudsInfo" id="cRy-l9-VTv" customClass="CouldsInfoViewController" customModule="aWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QuV-cG-oJd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

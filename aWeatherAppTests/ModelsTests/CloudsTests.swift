@@ -31,7 +31,7 @@ class CloudsTests: QuickSpec {
             }
             
             it("it can be decoded correctly with all data present given correctly") {
-                expect(self.clouds.all).to(equal(0))
+                expect(self.clouds.all).to(equal(43))
             }
         }
     }

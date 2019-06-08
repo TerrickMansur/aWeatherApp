@@ -1,5 +1,5 @@
 //
-//  CouldInfoViewController.swift
+//  CouldsInfoViewController.swift
 //  aWeatherApp
 //
 //  Created by Terrick Mansur on 6/8/19.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-protocol CloudInfoViewModelType {
+protocol CloudsInfoViewModelType {
     var percentage: String { get }
 }
 
-class CouldInfoViewController: UIViewController, Componentable {
+class CouldsInfoViewController: UIViewController, Componentable {
  
     // MARK: IBOutlets
     @IBOutlet private var percentage: UILabel!
     
     // MARK: Componentable
-    static var storyboard: String = "CloudInfo"
+    static var storyboard: String = "CloudsInfo"
     
-    var viewModel: CloudInfoViewModelType! {
+    var viewModel: CloudsInfoViewModelType! {
         didSet {
             percentage.text = self.viewModel.percentage
         }
