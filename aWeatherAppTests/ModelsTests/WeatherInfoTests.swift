@@ -19,9 +19,26 @@ class WeatherInfoTests: QuickSpec {
         override func spec() {
         describe("WeatherInfo") {
             beforeEach {
+                let decoder = JSONDecoder()
+                do {
+                    self.weatherInfo = try decoder.decode(
+                        WeatherInfo.self,
+                        from: self.loadJSONFile(file: "weatherinfo_test_data"))
+                } catch {
+                    self.weatherInfo = nil
+                }
             }
 
             it("it can be decoded correctly with all data present given correctly") {
+
+                expect(self.weatherInfo.id).to(equal(1907296))
+                expect(self.weatherInfo.cod).to(equal(200))
+                expect(self.weatherInfo.name).to(equal("Tawarano"))
+
+                expect(self.weatherInfo.clouds).toNot(beNil())
+                expect(self.weatherInfo.sys).toNot(beNil())
+                expect(self.weatherInfo.clouds).toNot(beNil())
+                expect(self.weatherInfo.main).toNot(beNil())
             }
         }
     }
