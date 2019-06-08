@@ -1,4 +1,4 @@
-module ReactiveKit {
+framework module ReactiveKit {
   umbrella header "ReactiveKit-umbrella.h"
 
   export *

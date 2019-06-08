@@ -1,4 +1,4 @@
-module Bond {
+framework module Bond {
   umbrella header "Bond-umbrella.h"
 
   export *
