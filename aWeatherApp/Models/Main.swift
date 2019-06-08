@@ -11,7 +11,7 @@ import Foundation
 struct Main: Codable {
     let temp: Double?
     let pressure: Double?
-    let humidity: Double?
+    let humidity: Int?
     let temp_min: Double?
     let temp_max: Double?
     let sea_level: Double?
