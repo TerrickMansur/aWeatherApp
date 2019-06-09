@@ -17,6 +17,7 @@ import ReactiveKit
 class CityTableViewCellViewModelTests: QuickSpec {
     override func spec() {
         
+        let tempAndIconSubject = Subject<TempratureAndIcon, Error>()
         var viewModel: CityTableViewCellViewModel!
         
         describe("CityTableViewCellViewModel") {
@@ -26,30 +27,53 @@ class CityTableViewCellViewModelTests: QuickSpec {
                     viewModel = CityTableViewCellViewModel(
                         cityName: "city name",
                         countryISOCode: "iso code",
-                        temprature: "temprature",
-                        weatherIcon: "weather_icon",
-                        imagesLocation: "http://www.location.com/")
+                        tempratureAndIcon: tempAndIconSubject.toSignal())
                 }
                 
                 it("intializes all its attributes correctly given the passed in info") {
                     expect(viewModel.cityName).to(equal("city name"))
                     expect(viewModel.countryISOCode).to(equal("iso code"))
-                    expect(viewModel.temprature).to(equal("temprature"))
-                    expect(viewModel.weatherIconUrl).to(equal(URL(string: "http://www.location.com/weather_icon.png")))
-                }
-            }
-            
-            context("using the convinience init with the model weathe info") {
-                beforeEach {
-                    viewModel = CityTableViewCellViewModel(weatherInfo: self.testWeatherInfoModel())
                 }
                 
-                it("intializes all its attributes correctly given when using the convinience init") {
-                    expect(viewModel.cityName).to(equal("Tawarano"))
-                    expect(viewModel.countryISOCode).to(equal("JP"))
-                    expect(viewModel.temprature).to(equal("\(285.514)"))
-                    expect(viewModel.weatherIconUrl).to(equal(URL(string: "\(Configuration.IMAGES_LOCATION)01n.png")))
+                it("will have the display loading state loading initialy") {
+                    let tempBag = DisposeBag()
+                    waitUntil { done in
+                        viewModel.display.observeNext { state in
+                            expect(state.isLoading).to(beTrue())
+                            done()
+                        }.dispose(in: tempBag)
+                    }
+                    tempBag.dispose()
                 }
+
+                it("will have a diplsy signal that gives the correct 'NA' and nil url when items are nil") {
+                    let tempBag = DisposeBag()
+                    waitUntil { done in
+                        viewModel.display.skip(first: 1).observeNext { state in
+                            expect(state.isLoading).to(beFalse())
+                            expect(state.value?.temprature).to(equal("NA"))
+                            expect(state.value?.icon).to(beNil())
+                            done()
+                        }.dispose(in: tempBag)
+                        tempAndIconSubject.next((temprature: nil, icon: nil))
+                        tempBag.dispose()
+                    }
+                }
+                
+                it("will have a diplsy signal that gives the correct 'NA' and nil url when items are nil") {
+                    let tempBag = DisposeBag()
+                    waitUntil { done in
+                        viewModel.display.skip(first: 1).observeNext { state in
+                            expect(state.isLoading).to(beFalse())
+                            expect(state.value?.temprature).to(equal("12.12"))
+                            expect(state.value?.icon).to(equal(URL(string: "http://www.google.com/icon.png")))
+                            done()
+                        }.dispose(in: tempBag)
+                        tempAndIconSubject.next((temprature: 12.12, icon: URL(string: "http://www.google.com/icon.png")))
+                        tempBag.dispose()
+                    }
+                }
+
             }
         }
     }

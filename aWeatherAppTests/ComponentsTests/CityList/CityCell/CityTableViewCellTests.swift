@@ -15,18 +15,21 @@ import ReactiveKit
 @testable import aWeatherApp
 
 class TestableCityCellViewModel: CityTableViewCellViewModelType {
-    
+
     var cityName: String = "city name"
     var countryISOCode: String = "country iso"
-    var temprature: String = "temp ra ture"
-    var weatherIconUrl: URL? = URL(string: "http://www.example.com/10.png")
+    var display: LoadingSignal<TempratureAndIconDisplay, Error>
+    
+    init(displaySubject: PublishSubject<TempratureAndIconDisplay, Error>) {
+        self.display = displaySubject.toSignal().toLoadingSignal()
+    }
 }
 
 class EmptyError: Error {}
 
 class CityTableViewCellTests: QuickSpec {
 
-    let weatherIconSubject = PublishSubject<Data, Error>()
+    let weatherDisplaySubject = PublishSubject<TempratureAndIconDisplay, Error>()
     
     var cell: CityTableViewCell!
     var viewModel: TestableCityCellViewModel!
@@ -40,7 +43,7 @@ class CityTableViewCellTests: QuickSpec {
                 let tableVC = storyboard.instantiateViewController(withIdentifier: "CityList") as? CityListViewController
                 let tableView = tableVC?.view.findSubView(restorationIdentifier: "tableView") as? UITableView
                 self.cell = tableView?.dequeueReusableCell(withIdentifier: "cityCell") as? CityTableViewCell
-                self.viewModel = TestableCityCellViewModel()
+                self.viewModel = TestableCityCellViewModel(displaySubject: self.weatherDisplaySubject)
                 self.cell.viewModel = self.viewModel
             }
             
@@ -50,13 +53,63 @@ class CityTableViewCellTests: QuickSpec {
 
                 let countryCodeLabel = self.cell
                     .findSubView(restorationIdentifier: "countryISOCode")?.asLabel()
+
+                expect(cityNameLabel?.text).to(equal("city name"))
+                expect(countryCodeLabel?.text).to(equal("country iso"))
+            }
+            
+            it("will hide the retry button, stop the loading indicator and set the correct data to the temprature when loaded successfully") {
+                
+                let retryButton = self.cell
+                    .findSubView(restorationIdentifier: "retryButton")?.asButton()
+                expect(retryButton?.isHidden).to(beTrue())
+                
+                let tempratureLabel = self.cell
+                    .findSubView(restorationIdentifier: "tempratureLabel")?.asLabel()
+                
+                let loadingIndicator = self.cell
+                    .findSubView(restorationIdentifier: "activityIndicator")?.asActivityIndicatorView()
+                
+                self.weatherDisplaySubject.next((temprature: "temptemp", icon: URL(string: "http://wwww.test.com/some.png")))
+                
+                expect(retryButton?.isHidden).to(beTrue())
+                expect(tempratureLabel?.text).to(equal("temptemp"))
+                expect(loadingIndicator?.isAnimating).to(beFalse())
+            }
+
+            it("will set the retry button to hidden, the loading indicator to be animating and the temprature to say loading when loading") {
+
+                let retryButton = self.cell
+                    .findSubView(restorationIdentifier: "retryButton")?.asButton()
+ 
+                let tempratureLabel = self.cell
+                    .findSubView(restorationIdentifier: "tempratureLabel")?.asLabel()
+
+                let loadingIndicator = self.cell
+                    .findSubView(restorationIdentifier: "activityIndicator")?.asActivityIndicatorView()
+                
+                expect(retryButton?.isHidden).to(beTrue())
+                expect(tempratureLabel?.text).to(equal("Loading"))
+                expect(loadingIndicator?.isAnimating).to(beTrue())
+            }
+            
+            it("will set the retry button to showing and the loading indicator not animating when the signal fails") {
+
+                let retryButton = self.cell
+                    .findSubView(restorationIdentifier: "retryButton")?.asButton()
+                expect(retryButton?.isHidden).to(beTrue())
                 
                 let tempratureLabel = self.cell
                     .findSubView(restorationIdentifier: "tempratureLabel")?.asLabel()
 
-                expect(cityNameLabel?.text).to(equal("city name"))
-                expect(countryCodeLabel?.text).to(equal("country iso"))
-                expect(tempratureLabel?.text).to(equal("temp ra ture"))
+                let loadingIndicator = self.cell
+                    .findSubView(restorationIdentifier: "activityIndicator")?.asActivityIndicatorView()
+                
+                self.weatherDisplaySubject.failed(EmptyError())
+                
+                expect(retryButton?.isHidden).to(beFalse())
+                expect(tempratureLabel?.text).to(equal("Failed"))
+                expect(loadingIndicator?.isAnimating).to(beFalse())
             }
         }
     }

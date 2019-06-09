@@ -41,7 +41,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="weatherIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-mV-EJv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="weatherIcon" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-mV-EJv">
                                                     <rect key="frame" x="28" y="80.5" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="Tns-hp-788"/>
@@ -54,24 +54,37 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="activityIndicator" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3nE-zf-1EH">
+                                                    <rect key="frame" x="382" y="95.5" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" restorationIdentifier="retryButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-oG-QpJ">
+                                                    <rect key="frame" x="369" y="90.5" width="37" height="30"/>
+                                                    <state key="normal" title="Retry"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="ShN-Jo-acN" secondAttribute="trailing" constant="8" id="5l8-Kp-q8O"/>
+                                                <constraint firstItem="3nE-zf-1EH" firstAttribute="centerY" secondItem="6PV-mV-EJv" secondAttribute="centerY" id="9ae-WG-AX2"/>
                                                 <constraint firstItem="oaM-K6-jJY" firstAttribute="bottom" secondItem="lQu-K6-9kV" secondAttribute="bottom" constant="-5" id="Cqz-Bc-Z7M"/>
                                                 <constraint firstAttribute="trailing" secondItem="oaM-K6-jJY" secondAttribute="trailing" constant="8" id="FJ5-Gv-MdP"/>
                                                 <constraint firstItem="lQu-K6-9kV" firstAttribute="top" secondItem="7bh-fq-NPb" secondAttribute="topMargin" constant="8" id="Hfz-5z-0aK"/>
                                                 <constraint firstItem="ShN-Jo-acN" firstAttribute="leading" secondItem="6PV-mV-EJv" secondAttribute="trailing" constant="8" id="IMg-pC-Rtt"/>
+                                                <constraint firstItem="Ldy-oG-QpJ" firstAttribute="centerY" secondItem="6PV-mV-EJv" secondAttribute="centerY" id="LAx-7d-3sM"/>
                                                 <constraint firstAttribute="bottom" secondItem="6PV-mV-EJv" secondAttribute="bottom" constant="8" id="SwQ-Lr-Skw"/>
                                                 <constraint firstItem="6PV-mV-EJv" firstAttribute="top" secondItem="lQu-K6-9kV" secondAttribute="bottom" constant="8" id="WEp-5K-hEr"/>
+                                                <constraint firstItem="3nE-zf-1EH" firstAttribute="trailing" secondItem="7bh-fq-NPb" secondAttribute="trailingMargin" constant="8" id="dhE-F6-WPM"/>
                                                 <constraint firstItem="oaM-K6-jJY" firstAttribute="leading" secondItem="lQu-K6-9kV" secondAttribute="trailing" constant="8" id="frg-uA-r2j"/>
                                                 <constraint firstItem="6PV-mV-EJv" firstAttribute="leading" secondItem="lQu-K6-9kV" secondAttribute="leading" id="i4s-O2-P1d"/>
                                                 <constraint firstItem="lQu-K6-9kV" firstAttribute="leading" secondItem="7bh-fq-NPb" secondAttribute="leadingMargin" constant="8" id="mMp-dq-d1d"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ldy-oG-QpJ" secondAttribute="trailing" constant="8" id="sdE-JM-nAh"/>
                                                 <constraint firstItem="ShN-Jo-acN" firstAttribute="centerY" secondItem="6PV-mV-EJv" secondAttribute="centerY" id="wpv-vv-yaz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicatorView" destination="3nE-zf-1EH" id="jFw-VB-gK0"/>
                                             <outlet property="cityName" destination="lQu-K6-9kV" id="Q7R-H6-od2"/>
                                             <outlet property="countryISOCode" destination="oaM-K6-jJY" id="9F4-pG-H1N"/>
+                                            <outlet property="retryButton" destination="Ldy-oG-QpJ" id="Rfn-GX-tVw"/>
                                             <outlet property="temprature" destination="ShN-Jo-acN" id="YNW-1K-QXe"/>
                                             <outlet property="weatherIcon" destination="6PV-mV-EJv" id="ED4-Mp-QlX"/>
                                         </connections>
@@ -101,4 +114,7 @@
             <point key="canvasLocation" x="-256.52173913043481" y="52.901785714285715"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder" width="50" height="50"/>
+    </resources>
 </document>

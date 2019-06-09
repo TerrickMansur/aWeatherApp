@@ -11,11 +11,12 @@ import ReactiveKit
 import Bond
 import SDWebImage
 
+typealias TempratureAndIconDisplay = (temprature: String, icon: URL?)
+
 protocol CityTableViewCellViewModelType {
     var cityName: String { get }
     var countryISOCode: String { get }
-    var temprature: String { get }
-    var weatherIconUrl: URL? { get }
+    var display: LoadingSignal<TempratureAndIconDisplay, Error> { get }
 }
 
 class CityTableViewCell: UITableViewCell {
@@ -25,21 +26,45 @@ class CityTableViewCell: UITableViewCell {
     @IBOutlet private var countryISOCode: UILabel!
     @IBOutlet private var weatherIcon: UIImageView!
     @IBOutlet private var temprature: UILabel!
+    @IBOutlet private var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet private var retryButton: UIButton!
 
     var viewModel: CityTableViewCellViewModelType! {
         didSet {
 
             cityName.text = self.viewModel.cityName
             countryISOCode.text = self.viewModel.countryISOCode
-            temprature.text = self.viewModel.temprature
 
-            weatherIcon.sd_setImage(with:  self.viewModel.weatherIconUrl,
-                                    placeholderImage: UIImage(named: "placeholder.png"))
+            self.viewModel.display.observeNext { [weak self] state in
+                self?.updateWithState(state: state)
+            }.dispose(in: bag)
+            
+            retryButton.reactive.tap.flatMapLatest { self.viewModel.display }.observeNext { [ weak self] state in
+                self?.updateWithState(state: state)
+            }.dispose(in: bag)
         }
     }
-
+    
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.bag.dispose()
+        bag.dispose()
+    }
+    
+    private func updateWithState(state: LoadingState<TempratureAndIconDisplay, Error>) {
+        switch state {
+        case .loading:
+        activityIndicatorView.startAnimating()
+        retryButton.isHidden = true
+        temprature.text = "Loading"
+        case .loaded(let data):
+        temprature.text = data.temprature
+        retryButton.isHidden = true
+        activityIndicatorView.stopAnimating()
+        weatherIcon.sd_setImage(with: data.icon, placeholderImage: UIImage(named: "placeholder"))
+        case .failed:
+        temprature.text = "Failed"
+        retryButton.isHidden = false
+        activityIndicatorView.stopAnimating()
+        }
     }
 }

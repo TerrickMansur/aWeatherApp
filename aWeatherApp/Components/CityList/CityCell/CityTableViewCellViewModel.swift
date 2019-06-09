@@ -9,36 +9,27 @@
 import Foundation
 import ReactiveKit
 
+typealias TempratureAndIcon = (temprature: Double?, icon: URL?)
+
 class CityTableViewCellViewModel: CityTableViewCellViewModelType {
 
     // MARK: CityTableViewCellViewModelType
     let cityName: String
     let countryISOCode: String
-    let temprature: String
-    let weatherIconUrl: URL?
+    var display: LoadingSignal<TempratureAndIconDisplay, Error>
 
     init(cityName: String,
          countryISOCode: String,
-         temprature: String,
-         weatherIcon: String,
-         imagesLocation: String = Configuration.IMAGES_LOCATION) {
+         tempratureAndIcon: Signal<TempratureAndIcon, Error>) {
         
         self.cityName = cityName
         self.countryISOCode = countryISOCode
-        self.temprature = temprature
-        self.weatherIconUrl = URL(string: "\(imagesLocation)\(weatherIcon).png")
-    }
-    
-    convenience init(weatherInfo: WeatherInfo) {
-        
-        var tempratureDisplay = "NA"
-        if let temp = weatherInfo.main?.temp {
-            tempratureDisplay = "\(temp)"
-        }
-        
-        self.init(cityName: weatherInfo.name ?? "NA",
-                  countryISOCode: weatherInfo.sys?.country ?? "NA",
-                  temprature: tempratureDisplay,
-                  weatherIcon: weatherInfo.weather?.first?.icon ?? "")
+        self.display = tempratureAndIcon.map { tempAndIcon in
+            var tempratureDisplay = "NA"
+            if let tempDis = tempAndIcon.temprature {
+                tempratureDisplay = "\(tempDis)"
+            }
+            return (temprature: tempratureDisplay, icon: tempAndIcon.icon)
+        }.toLoadingSignal()
     }
 }

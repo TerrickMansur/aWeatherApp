@@ -64,6 +64,7 @@
 		CB39C9EA22ADAD92002637DE /* weather_test_data.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39C9E922ADAD92002637DE /* weather_test_data.json */; };
 		CB39C9EC22ADAF58002637DE /* CityTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9EB22ADAF58002637DE /* CityTableViewCellViewModelTests.swift */; };
 		CB39C9EE22ADB91C002637DE /* TestWeatherInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9ED22ADB91C002637DE /* TestWeatherInfoModel.swift */; };
+		CB39C9F022ADBAB1002637DE /* CityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		CB39C9E922ADAD92002637DE /* weather_test_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather_test_data.json; sourceTree = "<group>"; };
 		CB39C9EB22ADAF58002637DE /* CityTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		CB39C9ED22ADB91C002637DE /* TestWeatherInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestWeatherInfoModel.swift; sourceTree = "<group>"; };
+		CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +431,7 @@
 				CB39C9CE22AC3732002637DE /* CityCell */,
 				CB39C9CA22AC330C002637DE /* CityList.storyboard */,
 				CB39C9CC22AC35A7002637DE /* CityListViewController.swift */,
+				CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */,
 				CB39C97A22AC06F6002637DE /* Wind.swift in Sources */,
 				CB39C9AA22AC16C2002637DE /* WindInfoViewModel.swift in Sources */,
+				CB39C9F022ADBAB1002637DE /* CityListViewModel.swift in Sources */,
 				CB39C9D022AC3752002637DE /* CityTableViewCell.swift in Sources */,
 				CB39C99C22AC0E86002637DE /* WeatherEndpoint.swift in Sources */,
 				CB39C9AC22AC170B002637DE /* Component.swift in Sources */,
