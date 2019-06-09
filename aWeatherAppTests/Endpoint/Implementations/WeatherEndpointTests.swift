@@ -13,11 +13,9 @@ import Alamofire
 
 @testable import aWeatherApp
 
-
-
-class WeatherTests: QuickSpec {
+class WeatherEndpointTests: QuickSpec {
     
-    var weather: Weather!
+    var weather: WeatherEndpoint!
     
     override func spec() {
         describe("Weather") {
@@ -25,7 +23,7 @@ class WeatherTests: QuickSpec {
             context("when initialized with only city name") {
 
                 beforeEach {
-                    self.weather = Weather(city: "New York")
+                    self.weather = WeatherEndpoint(city: "New York")
                 }
 
                 it("it should provide the correct location, method, parameters, and session header") {
@@ -39,7 +37,7 @@ class WeatherTests: QuickSpec {
             
             context("when initialized with city name and ISO country code") {
                 beforeEach {
-                    self.weather = Weather(city: "New York", isoCountryCode: "US")
+                    self.weather = WeatherEndpoint(city: "New York", isoCountryCode: "US")
                 }
                 
                 it("its should provide the correct location, method, session header and the parameters['q'] should also include the country code") {
@@ -53,7 +51,7 @@ class WeatherTests: QuickSpec {
             
             context("when initialized with different APPID and Api Location, it should use those") {
                 beforeEach {
-                    self.weather = Weather(city: "New York", isoCountryCode: "US", apiLocation: "somelocation", appId: "someappid")
+                    self.weather = WeatherEndpoint(city: "New York", isoCountryCode: "US", apiLocation: "somelocation", appId: "someappid")
                 }
                 
                 it("its should provide the correct location, method, session header and the parameters['q'] should also include the country code") {

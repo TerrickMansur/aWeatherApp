@@ -35,6 +35,8 @@ class WeatherInfoTests: QuickSpec {
                 expect(self.weatherInfo.cod).to(equal(200))
                 expect(self.weatherInfo.name).to(equal("Tawarano"))
 
+                expect(self.weatherInfo.weather).toNot(beNil())
+                expect(self.weatherInfo.weather?.count).to(equal(1))
                 expect(self.weatherInfo.clouds).toNot(beNil())
                 expect(self.weatherInfo.sys).toNot(beNil())
                 expect(self.weatherInfo.clouds).toNot(beNil())

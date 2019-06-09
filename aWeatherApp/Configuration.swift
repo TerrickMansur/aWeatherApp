@@ -11,4 +11,5 @@ import Foundation
 struct Configuration {
     static let API_URL = "https://api.openweathermap.org/data/2.5/"
     static let APP_ID = "b12c1b59bf87ebd28ed930a9c0fec89d"
+    static let IMAGES_LOCATION = "http://openweathermap.org/img/w/"
 }

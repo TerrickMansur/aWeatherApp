@@ -7,6 +7,7 @@ target 'aWeatherApp' do
 pod 'ReactiveKit'
 pod 'Bond'
 pod 'Alamofire'
+pod 'SDWebImage'
 
 target 'aWeatherAppTests' do
     inherit! :search_paths

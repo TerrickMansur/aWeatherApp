@@ -35,4 +35,13 @@ internal extension UIView {
     func asTableView() -> UITableView? {
         return self as? UITableView
     }
+    
+    func asImageView() -> UIImageView? {
+        return self as? UIImageView
+    }
+    
+    func asActivityIndicatorView() -> UIActivityIndicatorView? {
+        return self as? UIActivityIndicatorView
+    }
+
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct Weather: Endpoint {
+struct WeatherEndpoint: Endpoint {
     
     // MARK: Endpoint
     let location: String

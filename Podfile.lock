@@ -7,6 +7,9 @@ PODS:
   - Nimble (8.0.1)
   - Quick (2.1.0)
   - ReactiveKit (3.12.2)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
 
 DEPENDENCIES:
   - Alamofire
@@ -14,6 +17,7 @@ DEPENDENCIES:
   - Nimble
   - Quick
   - ReactiveKit
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -23,6 +27,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - ReactiveKit
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -31,7 +36,8 @@ SPEC CHECKSUMS:
   Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   ReactiveKit: 33adc5550145e8200daa3eb210841f2a0be642c6
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
 
-PODFILE CHECKSUM: ec58364186ddd32ee7bd6e74db5e02e6287e7730
+PODFILE CHECKSUM: 5666ab877e8558a2ab6d27f93e3d902f653e5d06
 
 COCOAPODS: 1.6.1
