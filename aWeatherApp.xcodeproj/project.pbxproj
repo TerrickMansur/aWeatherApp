@@ -68,6 +68,8 @@
 		CB39C9F222ADCDBB002637DE /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F122ADCDBB002637DE /* City.swift */; };
 		CB39C9F422ADD64F002637DE /* CityListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F322ADD64F002637DE /* CityListViewModelTests.swift */; };
 		CB39C9F622AE3F2E002637DE /* CityListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */; };
+		CB39C9F822AE4483002637DE /* Factory+CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F722AE4483002637DE /* Factory+CityList.swift */; };
+		CB39C9FF22AE50FE002637DE /* Signal+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		CB39C9F122ADCDBB002637DE /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		CB39C9F322ADD64F002637DE /* CityListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewModelTests.swift; sourceTree = "<group>"; };
 		CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewControllerTests.swift; sourceTree = "<group>"; };
+		CB39C9F722AE4483002637DE /* Factory+CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+CityList.swift"; sourceTree = "<group>"; };
+		CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+Mapping.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,8 @@
 		CB39C90022ABF401002637DE /* aWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB39C9FD22AE50EE002637DE /* Utilities */,
+				CB39C9F922AE482A002637DE /* Services */,
 				CB39C9A122AC15A6002637DE /* Components */,
 				CB39C99522AC0D9B002637DE /* Endpoints */,
 				CB39C95F22ABFB8C002637DE /* Models */,
@@ -439,6 +445,7 @@
 				CB39C9CA22AC330C002637DE /* CityList.storyboard */,
 				CB39C9CC22AC35A7002637DE /* CityListViewController.swift */,
 				CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */,
+				CB39C9F722AE4483002637DE /* Factory+CityList.swift */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
@@ -477,6 +484,21 @@
 				CB39C9E922ADAD92002637DE /* weather_test_data.json */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		CB39C9F922AE482A002637DE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CB39C9FD22AE50EE002637DE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -703,6 +725,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB39C9B422AC1AF4002637DE /* Factory+WindInfo.swift in Sources */,
+				CB39C9F822AE4483002637DE /* Factory+CityList.swift in Sources */,
 				CB39C9E122ADA81F002637DE /* WeatherIconEndpoint.swift in Sources */,
 				CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */,
 				CB39C9C422AC2DF6002637DE /* CloudsInfoViewModel.swift in Sources */,
@@ -716,6 +739,7 @@
 				CB39C9D022AC3752002637DE /* CityTableViewCell.swift in Sources */,
 				CB39C99C22AC0E86002637DE /* WeatherEndpoint.swift in Sources */,
 				CB39C9AC22AC170B002637DE /* Component.swift in Sources */,
+				CB39C9FF22AE50FE002637DE /* Signal+Mapping.swift in Sources */,
 				CB39C90222ABF401002637DE /* AppDelegate.swift in Sources */,
 				CB39C9E522ADAC6B002637DE /* Weather.swift in Sources */,
 				CB39C99A22AC0E49002637DE /* Configuration.swift in Sources */,

@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import ReactiveKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let cities = [
+        City(name: "Oranjestad", countryISOCode: "AW"),
+        City(name: "New York", countryISOCode: "US"),
+        City(name: "Amsterdam", countryISOCode: "NL"),
+    ]
+    
+    let userCitySubject = PublishSubject<City?, Never>()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        let list = Component.Factory.cityList(
+            cities: cities,
+            userCitySignal: userCitySubject.toSignal(),
+            signalForTampratureAndIcon: { city in
+                return WeatherEndpoint(city: city.name, isoCountryCode: city.countryISOCode)
+                    .signal().endpointToTempratureAndIcon()
+        })
+        
+        window?.rootViewController = list.viewController
+        
         return true
     }
 

@@ -13,13 +13,21 @@ protocol CityListViewModelType {
 
     var contentDidUpdate: Signal<Void, Never> { get }
     var numberOfSection: Int { get }
-
+    
     func numberOfRowsInSection(section: Int) -> Int
     func cellViewModelFor(indexPath: IndexPath) -> CityTableViewCellViewModelType
 }
 
 class CityListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, Componentable {
 
+    struct Output {
+        let didSelectIndexPath: SafeSignal<IndexPath>
+    }
+
+    var output: Output {
+        return Output(didSelectIndexPath: self.tableView.reactive.selectedRowIndexPath)
+    }
+    
     // MARK: IBOutlet
     @IBOutlet var tableView: UITableView!
 
