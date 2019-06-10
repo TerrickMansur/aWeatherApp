@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d4C-4d-YEC">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stack Layout View Controller-->
+        <scene sceneID="tHT-3X-qOY">
+            <objects>
+                <viewController storyboardIdentifier="StackLayoutView" id="d4C-4d-YEC" customClass="StackLayoutViewController" customModule="aWeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8od-cf-b2K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ecx-Hd-ZRC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tLt-pX-qIM">
+                                <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="Fx8-Ue-fGX"/>
+                                </constraints>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBP-hR-Tjx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1hB-FZ-PPq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="tqo-79-7Fp"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1hB-FZ-PPq" firstAttribute="width" secondItem="KBP-hR-Tjx" secondAttribute="width" id="179-bh-THq"/>
+                                    <constraint firstAttribute="trailing" secondItem="1hB-FZ-PPq" secondAttribute="trailing" id="DaN-2M-0S0"/>
+                                    <constraint firstAttribute="bottom" secondItem="1hB-FZ-PPq" secondAttribute="bottom" id="Gwm-Jk-d5C"/>
+                                    <constraint firstItem="1hB-FZ-PPq" firstAttribute="top" secondItem="KBP-hR-Tjx" secondAttribute="top" id="gmY-Ne-t2t"/>
+                                    <constraint firstItem="1hB-FZ-PPq" firstAttribute="leading" secondItem="KBP-hR-Tjx" secondAttribute="leading" id="hsz-fO-2UF"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-fi-1Nz">
+                                <rect key="frame" x="0.0" y="862" width="414" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="gQJ-uM-9JT"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tLt-pX-qIM" firstAttribute="leading" secondItem="vQw-hX-6ni" secondAttribute="leading" id="1ZI-8A-yt5"/>
+                            <constraint firstItem="vQw-hX-6ni" firstAttribute="trailing" secondItem="KBP-hR-Tjx" secondAttribute="trailing" id="4fu-30-yrr"/>
+                            <constraint firstItem="ecx-Hd-ZRC" firstAttribute="leading" secondItem="vQw-hX-6ni" secondAttribute="leading" id="7ag-SF-FHK"/>
+                            <constraint firstItem="ftn-fi-1Nz" firstAttribute="top" secondItem="KBP-hR-Tjx" secondAttribute="bottom" id="B1H-T6-hVa"/>
+                            <constraint firstItem="ftn-fi-1Nz" firstAttribute="trailing" secondItem="vQw-hX-6ni" secondAttribute="trailing" id="FSO-l1-9tg"/>
+                            <constraint firstItem="KBP-hR-Tjx" firstAttribute="top" secondItem="tLt-pX-qIM" secondAttribute="bottom" id="NQY-El-IFc"/>
+                            <constraint firstItem="tLt-pX-qIM" firstAttribute="top" secondItem="vQw-hX-6ni" secondAttribute="top" id="TFH-Pe-9US"/>
+                            <constraint firstItem="KBP-hR-Tjx" firstAttribute="leading" secondItem="vQw-hX-6ni" secondAttribute="leading" id="ZMZ-iY-X7w"/>
+                            <constraint firstItem="ecx-Hd-ZRC" firstAttribute="top" secondItem="8od-cf-b2K" secondAttribute="top" id="fTc-mS-ZtT"/>
+                            <constraint firstAttribute="bottom" secondItem="ecx-Hd-ZRC" secondAttribute="bottom" id="kER-Ft-bMI"/>
+                            <constraint firstAttribute="trailing" secondItem="ecx-Hd-ZRC" secondAttribute="trailing" id="lKY-jf-U9j"/>
+                            <constraint firstItem="ftn-fi-1Nz" firstAttribute="leading" secondItem="vQw-hX-6ni" secondAttribute="leading" id="lRN-pN-mFO"/>
+                            <constraint firstItem="vQw-hX-6ni" firstAttribute="trailing" secondItem="tLt-pX-qIM" secondAttribute="trailing" id="mOu-dG-qMS"/>
+                            <constraint firstItem="vQw-hX-6ni" firstAttribute="bottom" secondItem="ftn-fi-1Nz" secondAttribute="bottom" id="ujB-eC-rVs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vQw-hX-6ni"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImage" destination="ecx-Hd-ZRC" id="bH9-c9-4sz"/>
+                        <outlet property="bodyBottom" destination="B1H-T6-hVa" id="GMt-fm-sri"/>
+                        <outlet property="bodyHeight" destination="tqo-79-7Fp" id="zgD-AJ-Zgc"/>
+                        <outlet property="bodyLeft" destination="ZMZ-iY-X7w" id="fAF-8K-caM"/>
+                        <outlet property="bodyRight" destination="4fu-30-yrr" id="tT2-pu-VcD"/>
+                        <outlet property="bodyStackView" destination="1hB-FZ-PPq" id="i86-kB-XD5"/>
+                        <outlet property="bodyTop" destination="NQY-El-IFc" id="9Wz-pK-NY9"/>
+                        <outlet property="footerBottom" destination="ujB-eC-rVs" id="HSF-X8-NSc"/>
+                        <outlet property="footerHeight" destination="gQJ-uM-9JT" id="MYh-OO-xKy"/>
+                        <outlet property="footerLeft" destination="FSO-l1-9tg" id="eHf-9N-NCT"/>
+                        <outlet property="footerRight" destination="lRN-pN-mFO" id="oBj-ex-gFO"/>
+                        <outlet property="footerStackView" destination="ftn-fi-1Nz" id="wQQ-SK-tya"/>
+                        <outlet property="footerTop" destination="B1H-T6-hVa" id="egj-CM-nLK"/>
+                        <outlet property="headerBottom" destination="gmY-Ne-t2t" id="bB3-4z-hFk"/>
+                        <outlet property="headerHeight" destination="Fx8-Ue-fGX" id="BmU-JQ-x1O"/>
+                        <outlet property="headerLeft" destination="1ZI-8A-yt5" id="VgT-Qf-L93"/>
+                        <outlet property="headerRight" destination="mOu-dG-qMS" id="IFo-cB-TBa"/>
+                        <outlet property="headerStackView" destination="tLt-pX-qIM" id="HYk-gl-jrq"/>
+                        <outlet property="headerTop" destination="TFH-Pe-9US" id="3ma-Jc-A70"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbq-NM-Vv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="18.75"/>
+        </scene>
+    </scenes>
+</document>

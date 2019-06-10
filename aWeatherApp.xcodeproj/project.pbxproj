@@ -74,6 +74,14 @@
 		CB39CA0522AE58E5002637DE /* Signal+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */; };
 		CB39CA0B22AE5BD2002637DE /* broken_json.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39CA0A22AE5BD2002637DE /* broken_json.json */; };
 		CB39CA0D22AE5F50002637DE /* GeoCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0C22AE5F50002637DE /* GeoCoder.swift */; };
+		CB39CA1322AEA361002637DE /* StackLayoutView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB39CA1022AEA361002637DE /* StackLayoutView.storyboard */; };
+		CB39CA1422AEA361002637DE /* StackLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA1122AEA361002637DE /* StackLayoutViewController.swift */; };
+		CB39CA1522AEA361002637DE /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA1222AEA361002637DE /* Layout.swift */; };
+		CB39CA1E22AEA670002637DE /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA1C22AEA670002637DE /* Flow.swift */; };
+		CB39CA1F22AEA670002637DE /* FlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA1D22AEA670002637DE /* FlowViewController.swift */; };
+		CB39CA2222AEA74A002637DE /* MainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA2122AEA74A002637DE /* MainFlow.swift */; };
+		CB39CA2522AEB93C002637DE /* WeatherDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA2422AEB93C002637DE /* WeatherDetails.swift */; };
+		CB39CA2722AEBA66002637DE /* Factory+CloudsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA2622AEBA66002637DE /* Factory+CloudsInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +170,14 @@
 		CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+MappingTests.swift"; sourceTree = "<group>"; };
 		CB39CA0A22AE5BD2002637DE /* broken_json.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = broken_json.json; sourceTree = "<group>"; };
 		CB39CA0C22AE5F50002637DE /* GeoCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoder.swift; sourceTree = "<group>"; };
+		CB39CA1022AEA361002637DE /* StackLayoutView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StackLayoutView.storyboard; sourceTree = "<group>"; };
+		CB39CA1122AEA361002637DE /* StackLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutViewController.swift; sourceTree = "<group>"; };
+		CB39CA1222AEA361002637DE /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		CB39CA1C22AEA670002637DE /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		CB39CA1D22AEA670002637DE /* FlowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowViewController.swift; sourceTree = "<group>"; };
+		CB39CA2122AEA74A002637DE /* MainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlow.swift; sourceTree = "<group>"; };
+		CB39CA2422AEB93C002637DE /* WeatherDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetails.swift; sourceTree = "<group>"; };
+		CB39CA2622AEBA66002637DE /* Factory+CloudsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+CloudsInfo.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +243,8 @@
 		CB39C90022ABF401002637DE /* aWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				CB39CA1B22AEA657002637DE /* Flow */,
+				CB39CA0E22AEA00B002637DE /* Layout */,
 				CB39C9FD22AE50EE002637DE /* Utilities */,
 				CB39C9F922AE482A002637DE /* Services */,
 				CB39C9A122AC15A6002637DE /* Components */,
@@ -435,6 +453,7 @@
 				CB39C9BC22AC274E002637DE /* CloudsInfo.storyboard */,
 				CB39C9BE22AC2838002637DE /* CloudsInfoViewController.swift */,
 				CB39C9C322AC2DF6002637DE /* CloudsInfoViewModel.swift */,
+				CB39CA2622AEBA66002637DE /* Factory+CloudsInfo.swift */,
 			);
 			path = CloudInfo;
 			sourceTree = "<group>";
@@ -519,6 +538,51 @@
 				CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */,
 			);
 			path = UtilitiesTests;
+			sourceTree = "<group>";
+		};
+		CB39CA0E22AEA00B002637DE /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA2322AEB929002637DE /* WeatherDetails */,
+				CB39CA1222AEA361002637DE /* Layout.swift */,
+				CB39CA0F22AEA361002637DE /* StackLayout */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		CB39CA0F22AEA361002637DE /* StackLayout */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA1022AEA361002637DE /* StackLayoutView.storyboard */,
+				CB39CA1122AEA361002637DE /* StackLayoutViewController.swift */,
+			);
+			path = StackLayout;
+			sourceTree = "<group>";
+		};
+		CB39CA1B22AEA657002637DE /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA2022AEA73A002637DE /* MainFlow */,
+				CB39CA1C22AEA670002637DE /* Flow.swift */,
+				CB39CA1D22AEA670002637DE /* FlowViewController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		CB39CA2022AEA73A002637DE /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA2122AEA74A002637DE /* MainFlow.swift */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		CB39CA2322AEB929002637DE /* WeatherDetails */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA2422AEB93C002637DE /* WeatherDetails.swift */,
+			);
+			path = WeatherDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -612,6 +676,7 @@
 				CB39C90922ABF402002637DE /* Assets.xcassets in Resources */,
 				CB39C90722ABF401002637DE /* Main.storyboard in Resources */,
 				CB39C9CB22AC330C002637DE /* CityList.storyboard in Resources */,
+				CB39CA1322AEA361002637DE /* StackLayoutView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,12 +813,17 @@
 				CB39C9B422AC1AF4002637DE /* Factory+WindInfo.swift in Sources */,
 				CB39C9F822AE4483002637DE /* Factory+CityList.swift in Sources */,
 				CB39C9E122ADA81F002637DE /* WeatherIconEndpoint.swift in Sources */,
+				CB39CA1F22AEA670002637DE /* FlowViewController.swift in Sources */,
 				CB39CA0122AE5873002637DE /* UserLocationService.swift in Sources */,
 				CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */,
+				CB39CA2522AEB93C002637DE /* WeatherDetails.swift in Sources */,
+				CB39CA2222AEA74A002637DE /* MainFlow.swift in Sources */,
 				CB39C9C422AC2DF6002637DE /* CloudsInfoViewModel.swift in Sources */,
 				CB39C9F222ADCDBB002637DE /* City.swift in Sources */,
+				CB39CA2722AEBA66002637DE /* Factory+CloudsInfo.swift in Sources */,
 				CB39C9BF22AC2838002637DE /* CloudsInfoViewController.swift in Sources */,
 				CB39C90422ABF401002637DE /* ViewController.swift in Sources */,
+				CB39CA1422AEA361002637DE /* StackLayoutViewController.swift in Sources */,
 				CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */,
 				CB39C97A22AC06F6002637DE /* Wind.swift in Sources */,
 				CB39CA0D22AE5F50002637DE /* GeoCoder.swift in Sources */,
@@ -765,9 +835,11 @@
 				CB39C9FF22AE50FE002637DE /* Signal+Mapping.swift in Sources */,
 				CB39C90222ABF401002637DE /* AppDelegate.swift in Sources */,
 				CB39C9E522ADAC6B002637DE /* Weather.swift in Sources */,
+				CB39CA1E22AEA670002637DE /* Flow.swift in Sources */,
 				CB39C99A22AC0E49002637DE /* Configuration.swift in Sources */,
 				CB39C98322AC0872002637DE /* Clouds.swift in Sources */,
 				CB39C97122AC03A6002637DE /* Main.swift in Sources */,
+				CB39CA1522AEA361002637DE /* Layout.swift in Sources */,
 				CB39C9CD22AC35A7002637DE /* CityListViewController.swift in Sources */,
 				CB39C96122ABFB9A002637DE /* WeatherInfo.swift in Sources */,
 				CB39C9DF22ADA795002637DE /* CityTableViewCellViewModel.swift in Sources */,

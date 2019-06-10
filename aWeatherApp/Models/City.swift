@@ -8,7 +8,14 @@
 
 import Foundation
 
-struct City: Equatable {
+class City {
     let name: String
     let countryISOCode: String
+    var weatherInfo: WeatherInfo?
+    
+    init(name: String, countryISOCode: String, weatherInfo: WeatherInfo? = nil) {
+        self.name = name
+        self.countryISOCode = countryISOCode
+        self.weatherInfo = weatherInfo
+    }
 }

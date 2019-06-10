@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias WindInfo = (viewCntroller: WindInfoViewController, viewModel: WindInfoViewModel)
+typealias WindInfo = (viewController: WindInfoViewController, viewModel: WindInfoViewModel)
 
 extension Component.Factory {
     static func windInfo(speed: String, degrees: String) -> WindInfo {
@@ -18,7 +18,7 @@ extension Component.Factory {
             return viewModel
         })
         
-        return (viewCntroller: viewController, viewModel: viewModel)
+        return (viewController: viewController, viewModel: viewModel)
     }
     
     static func windInfo(wind: Wind) -> WindInfo {
@@ -27,7 +27,7 @@ extension Component.Factory {
             return viewModel
         })
         
-        return (viewCntroller: viewController, viewModel: viewModel)
+        return (viewController: viewController, viewModel: viewModel)
     }
 
 }

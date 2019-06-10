@@ -56,6 +56,7 @@ class CityTableViewCell: UITableViewCell {
         activityIndicatorView.startAnimating()
         retryButton.isHidden = true
         temprature.text = "Loading"
+        self.weatherIcon?.image = UIImage(named: "placeholder")
         case .loaded(let data):
         temprature.text = data.temprature
         retryButton.isHidden = true
