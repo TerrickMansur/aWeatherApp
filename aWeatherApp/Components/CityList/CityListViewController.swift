@@ -34,10 +34,6 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     // MARK: UITableViewDataSource, UITableViewDelegate
     
     func numberOfSections(in tableView: UITableView) -> Int {

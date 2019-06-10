@@ -67,6 +67,7 @@
 		CB39C9F022ADBAB1002637DE /* CityListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */; };
 		CB39C9F222ADCDBB002637DE /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F122ADCDBB002637DE /* City.swift */; };
 		CB39C9F422ADD64F002637DE /* CityListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F322ADD64F002637DE /* CityListViewModelTests.swift */; };
+		CB39C9F622AE3F2E002637DE /* CityListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		CB39C9EF22ADBAB1002637DE /* CityListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewModel.swift; sourceTree = "<group>"; };
 		CB39C9F122ADCDBB002637DE /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		CB39C9F322ADD64F002637DE /* CityListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewModelTests.swift; sourceTree = "<group>"; };
+		CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,6 +457,7 @@
 			children = (
 				CB39C9D522AC6C07002637DE /* CityCell */,
 				CB39C9F322ADD64F002637DE /* CityListViewModelTests.swift */,
+				CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				CB39C98A22AC0964002637DE /* CloudsTests.swift in Sources */,
 				CB39C9D722AC6C1A002637DE /* CityTableViewCellTests.swift in Sources */,
 				CB39C9EE22ADB91C002637DE /* TestWeatherInfoModel.swift in Sources */,
+				CB39C9F622AE3F2E002637DE /* CityListViewControllerTests.swift in Sources */,
 				CB39C96D22ABFEA3002637DE /* WeatherInfoTests.swift in Sources */,
 				CB39C9E722ADAD5E002637DE /* WeatherTests.swift in Sources */,
 				CB39C9C222AC2918002637DE /* CloudsInfoViewControllerTests.swift in Sources */,
