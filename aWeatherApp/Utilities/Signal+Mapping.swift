@@ -10,6 +10,13 @@ import Foundation
 import ReactiveKit
 
 extension Signal where Element == Data {
+    func endpointToTempratureAndIcon() -> Signal<TempratureAndIcon, Error> {
+        return self.toWeatherInfoModel()
+            .toTempratureAndIcon()
+    }
+}
+
+extension Signal where Element == Data {
     
     func toWeatherInfoModel() -> Signal<WeatherInfo, Error> {
         return self.map { data in 
@@ -20,7 +27,7 @@ extension Signal where Element == Data {
                     WeatherInfo.self,
                     from: data)
             } catch {
-                fatalError("Could map data to WeatherInfo")
+                fatalError("Data must be json")
             }
             return weatherInfo
         }
@@ -34,12 +41,5 @@ extension Signal where Element == WeatherInfo {
             return (temprature: weatherInfoModel.main?.temp_max,
                     icon: URL(string: "\(iconsLocation)\(icon).png"))
         }
-    }
-}
-
-extension Signal where Element == Data {
-    func endpointToTempratureAndIcon() -> Signal<TempratureAndIcon, Error> {
-        return self.toWeatherInfoModel()
-            .toTempratureAndIcon()
     }
 }

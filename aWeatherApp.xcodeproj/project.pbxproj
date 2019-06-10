@@ -70,6 +70,9 @@
 		CB39C9F622AE3F2E002637DE /* CityListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */; };
 		CB39C9F822AE4483002637DE /* Factory+CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9F722AE4483002637DE /* Factory+CityList.swift */; };
 		CB39C9FF22AE50FE002637DE /* Signal+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */; };
+		CB39CA0122AE5873002637DE /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0022AE5873002637DE /* UserLocationService.swift */; };
+		CB39CA0522AE58E5002637DE /* Signal+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */; };
+		CB39CA0B22AE5BD2002637DE /* broken_json.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39CA0A22AE5BD2002637DE /* broken_json.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,9 @@
 		CB39C9F522AE3F2E002637DE /* CityListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewControllerTests.swift; sourceTree = "<group>"; };
 		CB39C9F722AE4483002637DE /* Factory+CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Factory+CityList.swift"; sourceTree = "<group>"; };
 		CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+Mapping.swift"; sourceTree = "<group>"; };
+		CB39CA0022AE5873002637DE /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
+		CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+MappingTests.swift"; sourceTree = "<group>"; };
+		CB39CA0A22AE5BD2002637DE /* broken_json.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = broken_json.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,11 +246,12 @@
 			children = (
 				CB39C9AD22AC1A0C002637DE /* ComponentsTests */,
 				CB39C99D22AC10C2002637DE /* Endpoint */,
-				CB39C96922ABFCE7002637DE /* Utilities */,
-				CB39C96522ABFC4F002637DE /* TestData */,
-				CB39C96222ABFBA0002637DE /* ModelsTests */,
 				CB39C91B22ABF584002637DE /* Info.plist */,
+				CB39C96222ABFBA0002637DE /* ModelsTests */,
 				CB39C9DA22AC80DB002637DE /* TestAssets.xcassets */,
+				CB39C96522ABFC4F002637DE /* TestData */,
+				CB39C96922ABFCE7002637DE /* Utilities */,
+				CB39CA0322AE58B6002637DE /* UtilitiesTests */,
 			);
 			path = aWeatherAppTests;
 			sourceTree = "<group>";
@@ -286,6 +293,7 @@
 				CB39C97422AC056D002637DE /* Main */,
 				CB39C96822ABFC67002637DE /* WeatherInfo */,
 				CB39C9B722AC2501002637DE /* no_data.json */,
+				CB39CA0A22AE5BD2002637DE /* broken_json.json */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -489,6 +497,7 @@
 		CB39C9F922AE482A002637DE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CB39CA0022AE5873002637DE /* UserLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -499,6 +508,14 @@
 				CB39C9FE22AE50FE002637DE /* Signal+Mapping.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CB39CA0322AE58B6002637DE /* UtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */,
+			);
+			path = UtilitiesTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -607,6 +624,7 @@
 				CB39C9DB22AC80DB002637DE /* TestAssets.xcassets in Resources */,
 				CB39C9EA22ADAD92002637DE /* weather_test_data.json in Resources */,
 				CB39C99122AC0B05002637DE /* sys_test_data.json in Resources */,
+				CB39CA0B22AE5BD2002637DE /* broken_json.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +745,7 @@
 				CB39C9B422AC1AF4002637DE /* Factory+WindInfo.swift in Sources */,
 				CB39C9F822AE4483002637DE /* Factory+CityList.swift in Sources */,
 				CB39C9E122ADA81F002637DE /* WeatherIconEndpoint.swift in Sources */,
+				CB39CA0122AE5873002637DE /* UserLocationService.swift in Sources */,
 				CB39C99722AC0DD5002637DE /* EndpointType.swift in Sources */,
 				CB39C9C422AC2DF6002637DE /* CloudsInfoViewModel.swift in Sources */,
 				CB39C9F222ADCDBB002637DE /* City.swift in Sources */,
@@ -770,6 +789,7 @@
 				CB39C9E722ADAD5E002637DE /* WeatherTests.swift in Sources */,
 				CB39C9C222AC2918002637DE /* CloudsInfoViewControllerTests.swift in Sources */,
 				CB39C9EC22ADAF58002637DE /* CityTableViewCellViewModelTests.swift in Sources */,
+				CB39CA0522AE58E5002637DE /* Signal+MappingTests.swift in Sources */,
 				CB39C9B022AC1A9E002637DE /* WindInfoViewControllerTests.swift in Sources */,
 				CB39C9C822AC3056002637DE /* TestCloudsModel.swift in Sources */,
 				CB39C9BA22AC25A0002637DE /* WindInfoViewModelTest.swift in Sources */,

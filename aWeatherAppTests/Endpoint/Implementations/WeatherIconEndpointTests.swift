@@ -27,7 +27,7 @@ class WeatherIconEndpointTests: QuickSpec {
                 }
                 
                 it("it should provide the correct location given the icon name") {
-                    expect(self.weatherIcon.location).to(equal("http://openweathermap.org/img/w/lala.png"))
+                    expect(self.weatherIcon.location).to(equal("https://openweathermap.org/img/w/lala.png"))
                 }
             }
             
