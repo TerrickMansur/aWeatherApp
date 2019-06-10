@@ -14,15 +14,17 @@ typealias CityList = (viewController: CityListViewController, viewModel: CityLis
 extension Component.Factory {
     static func cityList(
         cities: [City],
-        userCitySignal: SafeSignal<City?>,
-        signalForTampratureAndIcon: @escaping (City) -> Signal<TempratureAndIcon, Error>) -> CityList {
+        userCitySignal: Signal<City?, Error>,
+        signalForTampratureAndIcon: @escaping (City) -> Signal<TempratureAndIcon, SomeError>) -> CityList {
         
-        let viewModel = CityListViewModel(
+        var viewModel: CityListViewModel!
+
+        let viewController: CityListViewController = .create { vc in
+            viewModel = CityListViewModel(
             cities: cities,
             userCity: userCitySignal,
+            didSelectIndexPath: vc.output.didSelectIndexPath,
             signalForTampratureAndIcon: signalForTampratureAndIcon)
-        
-        let viewController: CityListViewController = .create { vc in
             return viewModel
         }
         

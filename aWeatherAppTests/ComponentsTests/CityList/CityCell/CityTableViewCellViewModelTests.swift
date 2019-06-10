@@ -17,7 +17,7 @@ import ReactiveKit
 class CityTableViewCellViewModelTests: QuickSpec {
     override func spec() {
         
-        let tempAndIconSubject = Subject<TempratureAndIcon, Error>()
+        let tempAndIconSubject = Subject<TempratureAndIcon, SomeError>()
         var viewModel: CityTableViewCellViewModel!
         
         describe("CityTableViewCellViewModel") {

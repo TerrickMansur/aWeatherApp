@@ -17,8 +17,11 @@ import ReactiveKit
 fileprivate class TestableCityListViewModel: CityListViewModelType {
     
     var contentDidUpdate: Signal<Void, Never>
-    
     var numberOfSection: Int = 88
+
+    func titleForSection(section: Int) -> String {
+        return "Test"
+    }
     
     func numberOfRowsInSection(section: Int) -> Int {
         return 25
@@ -51,6 +54,10 @@ class CityListViewControllerTests: QuickSpec {
                 })
                 
                 self.tableView = self.viewController.view.findSubView(restorationIdentifier: "tableView")?.asTableView()
+            }
+            
+            it("returns the viewModel its section title") {
+                expect(self.viewController.tableView(self.tableView, titleForHeaderInSection: 0)).to(equal("Test"))
             }
             
             it("has same number of section and row given by the vm") {

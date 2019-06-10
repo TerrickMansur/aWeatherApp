@@ -11,12 +11,18 @@ import ReactiveKit
 
 class CityListViewModel: CityListViewModelType {
 
+    var didSelectCity: SafeSignal<City> {
+        return self.didSelectIndexPath.map { indexPath in
+            self.cityForIdexPath(indexPath: indexPath)
+        }
+    }
+    
     let bag = DisposeBag()
 
     // MARK: CityListViewModelType
 
-    let contentDidUpdate: Signal<Void, Never>
-
+    let contentDidUpdate: SafeSignal<Void>
+    
     var numberOfSection: Int {
         var numberOfSection = 0
         if hasUserCity { numberOfSection += 1}
@@ -27,14 +33,20 @@ class CityListViewModel: CityListViewModelType {
     // MARK: Private
     private var userCity: City?
     private let cities: [City]
-    private let signalForTampratureAndIcon: (_ city: City) -> (Signal<TempratureAndIcon, Error>)
+    private let signalForTampratureAndIcon: (_ city: City) -> (Signal<TempratureAndIcon, SomeError>)
+    private let didSelectIndexPath: SafeSignal<IndexPath>
     
     init(cities: [City],
-         userCity: SafeSignal<City?>,
-         signalForTampratureAndIcon: @escaping (_ city: City) -> (Signal<TempratureAndIcon, Error>)) {
+         userCity: Signal<City?, Error>,
+         didSelectIndexPath: SafeSignal<IndexPath>,
+         signalForTampratureAndIcon: @escaping (_ city: City) -> (Signal<TempratureAndIcon, SomeError>)) {
 
         self.cities = cities
-        contentDidUpdate = userCity.eraseType()
+        self.didSelectIndexPath = didSelectIndexPath
+        self.contentDidUpdate = userCity
+            .eraseType()
+            .suppressError(logging: false)
+
         self.signalForTampratureAndIcon = signalForTampratureAndIcon
 
         userCity.observeNext { [weak self] city in
@@ -61,6 +73,13 @@ class CityListViewModel: CityListViewModelType {
             countryISOCode: city.countryISOCode,
             tempratureAndIcon: signalForTampratureAndIcon(city))
     }
+    
+    func titleForSection(section: Int) -> String {
+        if hasUserCity && section == 0 {
+            return "You Location"
+        }
+        return "Cities"
+    }
 
     private func cityForIdexPath(indexPath: IndexPath) -> City {
         if hasUserCity {
@@ -82,5 +101,4 @@ class CityListViewModel: CityListViewModelType {
     private var hasUserCity: Bool {
         return self.userCity != nil
     }
-
 }

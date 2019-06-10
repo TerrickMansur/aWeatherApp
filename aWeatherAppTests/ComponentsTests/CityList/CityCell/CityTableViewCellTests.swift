@@ -18,18 +18,16 @@ class TestableCityCellViewModel: CityTableViewCellViewModelType {
 
     var cityName: String = "city name"
     var countryISOCode: String = "country iso"
-    var display: LoadingSignal<TempratureAndIconDisplay, Error>
+    var display: LoadingSignal<TempratureAndIconDisplay, SomeError>
     
-    init(displaySubject: PublishSubject<TempratureAndIconDisplay, Error>) {
+    init(displaySubject: PublishSubject<TempratureAndIconDisplay, SomeError>) {
         self.display = displaySubject.toSignal().toLoadingSignal()
     }
 }
 
-class EmptyError: Error {}
-
 class CityTableViewCellTests: QuickSpec {
 
-    let weatherDisplaySubject = PublishSubject<TempratureAndIconDisplay, Error>()
+    let weatherDisplaySubject = PublishSubject<TempratureAndIconDisplay, SomeError>()
     
     var cell: CityTableViewCell!
     var viewModel: TestableCityCellViewModel!
@@ -105,7 +103,7 @@ class CityTableViewCellTests: QuickSpec {
                 let loadingIndicator = self.cell
                     .findSubView(restorationIdentifier: "activityIndicator")?.asActivityIndicatorView()
                 
-                self.weatherDisplaySubject.failed(EmptyError())
+                self.weatherDisplaySubject.failed(SomeError())
                 
                 expect(retryButton?.isHidden).to(beFalse())
                 expect(tempratureLabel?.text).to(equal("Failed"))

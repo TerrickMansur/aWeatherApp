@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct City {
+struct City: Equatable {
     let name: String
     let countryISOCode: String
 }

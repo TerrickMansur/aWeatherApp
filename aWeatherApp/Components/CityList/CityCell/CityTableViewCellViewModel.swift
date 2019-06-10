@@ -16,11 +16,11 @@ class CityTableViewCellViewModel: CityTableViewCellViewModelType {
     // MARK: CityTableViewCellViewModelType
     let cityName: String
     let countryISOCode: String
-    var display: LoadingSignal<TempratureAndIconDisplay, Error>
+    var display: LoadingSignal<TempratureAndIconDisplay, SomeError>
 
     init(cityName: String,
          countryISOCode: String,
-         tempratureAndIcon: Signal<TempratureAndIcon, Error>) {
+         tempratureAndIcon: Signal<TempratureAndIcon, SomeError>) {
         
         self.cityName = cityName
         self.countryISOCode = countryISOCode

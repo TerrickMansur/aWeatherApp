@@ -73,6 +73,7 @@
 		CB39CA0122AE5873002637DE /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0022AE5873002637DE /* UserLocationService.swift */; };
 		CB39CA0522AE58E5002637DE /* Signal+MappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */; };
 		CB39CA0B22AE5BD2002637DE /* broken_json.json in Resources */ = {isa = PBXBuildFile; fileRef = CB39CA0A22AE5BD2002637DE /* broken_json.json */; };
+		CB39CA0D22AE5F50002637DE /* GeoCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39CA0C22AE5F50002637DE /* GeoCoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,7 @@
 		CB39CA0022AE5873002637DE /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
 		CB39CA0422AE58E5002637DE /* Signal+MappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+MappingTests.swift"; sourceTree = "<group>"; };
 		CB39CA0A22AE5BD2002637DE /* broken_json.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = broken_json.json; sourceTree = "<group>"; };
+		CB39CA0C22AE5F50002637DE /* GeoCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				CB39CA0022AE5873002637DE /* UserLocationService.swift */,
+				CB39CA0C22AE5F50002637DE /* GeoCoder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				CB39C90422ABF401002637DE /* ViewController.swift in Sources */,
 				CB39C98C22AC0AB1002637DE /* Sys.swift in Sources */,
 				CB39C97A22AC06F6002637DE /* Wind.swift in Sources */,
+				CB39CA0D22AE5F50002637DE /* GeoCoder.swift in Sources */,
 				CB39C9AA22AC16C2002637DE /* WindInfoViewModel.swift in Sources */,
 				CB39C9F022ADBAB1002637DE /* CityListViewModel.swift in Sources */,
 				CB39C9D022AC3752002637DE /* CityTableViewCell.swift in Sources */,

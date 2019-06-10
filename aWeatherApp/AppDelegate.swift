@@ -8,6 +8,7 @@
 
 import UIKit
 import ReactiveKit
+import Bond
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,26 +16,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let cities = [
+        City(name: "sda", countryISOCode: "gh"),
         City(name: "Oranjestad", countryISOCode: "AW"),
         City(name: "New York", countryISOCode: "US"),
-        City(name: "Amsterdam", countryISOCode: "NL"),
+        City(name: "Tokyo", countryISOCode: "JP"),
     ]
     
-    let userCitySubject = PublishSubject<City?, Never>()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        let subject = PublishSubject<City?, Error>()
+        
+        let distinctLocation = LocationTracker().observeLocation().distinctUntilChanged { lhsLocation, rhsLocation in
+            return lhsLocation.coordinate.latitude == rhsLocation.coordinate.latitude
+            && lhsLocation.coordinate.longitude == rhsLocation.coordinate.longitude
+        }
+        
+        distinctLocation.observeNext { location in
+            let geoCoder = GeoCoder()
+            geoCoder.reverseLocation(location: location)
+                .toCity().observeNext { city in
+                subject.next(city)
+            }.dispose(in: self.bag)
+        }.dispose(in: self.bag)
+
         let list = Component.Factory.cityList(
             cities: cities,
-            userCitySignal: userCitySubject.toSignal(),
+            userCitySignal: subject.toSignal(),
             signalForTampratureAndIcon: { city in
                 return WeatherEndpoint(city: city.name, isoCountryCode: city.countryISOCode)
-                    .signal().endpointToTempratureAndIcon()
+                    .signal()
+                    .endpointToTempratureAndIcon()
         })
-        
+
         window?.rootViewController = list.viewController
-        
+
         return true
     }
 

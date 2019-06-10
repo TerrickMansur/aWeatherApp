@@ -11,9 +11,10 @@ import ReactiveKit
 
 protocol CityListViewModelType {
 
-    var contentDidUpdate: Signal<Void, Never> { get }
+    var contentDidUpdate: SafeSignal<Void> { get }
     var numberOfSection: Int { get }
     
+    func titleForSection(section: Int) -> String
     func numberOfRowsInSection(section: Int) -> Int
     func cellViewModelFor(indexPath: IndexPath) -> CityTableViewCellViewModelType
 }
@@ -41,6 +42,10 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
             }.dispose(in: self.bag)
         }
     }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.titleForSection(section: section)
+    }
     
     // MARK: UITableViewDataSource, UITableViewDelegate
     
@@ -50,6 +55,10 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

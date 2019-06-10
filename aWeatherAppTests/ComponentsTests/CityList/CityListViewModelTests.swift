@@ -14,7 +14,7 @@ import ReactiveKit
 
 @testable import aWeatherApp
 
-fileprivate let temprature = PublishSubject<TempratureAndIcon, Error>()
+fileprivate let temprature = PublishSubject<TempratureAndIcon, SomeError>()
 
 class CityListViewModelTests: QuickSpec {
 
@@ -24,8 +24,9 @@ class CityListViewModelTests: QuickSpec {
         City(name: "Amsterdam", countryISOCode: "NL"),
     ]
  
-    let userCity = PublishSubject<City?, Never>()
-    let signalForTemprature: (City) -> Signal<TempratureAndIcon, Error> = { city in
+    let didSelectIndexPath = SafePublishSubject<IndexPath>()
+    let userCity = PublishSubject<City?, Error>()
+    let signalForTemprature: (City) -> Signal<TempratureAndIcon, SomeError> = { city in
         return temprature.toSignal()
     }
     
@@ -36,16 +37,42 @@ class CityListViewModelTests: QuickSpec {
             
             context("when initialized and user location not set yet") {
                 beforeEach {
-                    self.viewModel = CityListViewModel(cities: self.cities,
-                                                       userCity: self.userCity.toSignal(),
-                                                       signalForTampratureAndIcon: self.signalForTemprature)
+                    self.viewModel = CityListViewModel(
+                        cities: self.cities,
+                        userCity: self.userCity.toSignal(),
+                        didSelectIndexPath: self.didSelectIndexPath.toSignal(),
+                        signalForTampratureAndIcon: self.signalForTemprature)
                 }
 
                 it("has one section and three rows") {
                     expect(self.viewModel.numberOfSection).to(equal(1))
                     expect(self.viewModel.numberOfRowsInSection(section: 0)).to(equal(3))
                 }
-                
+
+                it("return the correct city given the did select index path input") {
+                    let tempBag = DisposeBag()
+                    waitUntil { done in
+                        self.viewModel.didSelectCity.observeNext { city in
+                            expect(city.name).to(equal("Oranjestad"))
+                            expect(city.countryISOCode).to(equal("AW"))
+                            done()
+                        }.dispose(in: tempBag)
+                        self.didSelectIndexPath.next(IndexPath(row: 0, section: 0))
+                    }
+                    tempBag.dispose()
+                    
+                    let tempBag2 = DisposeBag()
+                    waitUntil { done in
+                        self.viewModel.didSelectCity.observeNext { city in
+                            expect(city.name).to(equal("Amsterdam"))
+                            expect(city.countryISOCode).to(equal("NL"))
+                            done()
+                            }.dispose(in: tempBag2)
+                        self.didSelectIndexPath.next(IndexPath(row: 2, section: 0))
+                    }
+                    tempBag2.dispose()
+                }
+
                 it("triggers content did update when we send in a new user city") {
                     waitUntil { done in
                         let tempBag = DisposeBag()
@@ -94,9 +121,12 @@ class CityListViewModelTests: QuickSpec {
             
             context("when the user city is set") {
                 beforeEach {
-                    self.viewModel = CityListViewModel(cities: self.cities,
-                                                       userCity: self.userCity.toSignal(),
-                                                       signalForTampratureAndIcon: self.signalForTemprature)
+                    self.viewModel = CityListViewModel(
+                        cities: self.cities,
+                        userCity: self.userCity.toSignal(),
+                        didSelectIndexPath: self.didSelectIndexPath.toSignal(),
+                        signalForTampratureAndIcon: self.signalForTemprature)
+
                     self.userCity.next(City.init(name: "Tokyo", countryISOCode: "JP"))
                 }
 

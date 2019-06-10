@@ -16,7 +16,7 @@ typealias TempratureAndIconDisplay = (temprature: String, icon: URL?)
 protocol CityTableViewCellViewModelType {
     var cityName: String { get }
     var countryISOCode: String { get }
-    var display: LoadingSignal<TempratureAndIconDisplay, Error> { get }
+    var display: LoadingSignal<TempratureAndIconDisplay, SomeError> { get }
 }
 
 class CityTableViewCell: UITableViewCell {
@@ -50,7 +50,7 @@ class CityTableViewCell: UITableViewCell {
         bag.dispose()
     }
     
-    private func updateWithState(state: LoadingState<TempratureAndIconDisplay, Error>) {
+    private func updateWithState(state: LoadingState<TempratureAndIconDisplay, SomeError>) {
         switch state {
         case .loading:
         activityIndicatorView.startAnimating()
@@ -63,6 +63,7 @@ class CityTableViewCell: UITableViewCell {
         weatherIcon.sd_setImage(with: data.icon, placeholderImage: UIImage(named: "placeholder"))
         case .failed:
         temprature.text = "Failed"
+        self.weatherIcon?.image = UIImage(named: "placeholder")
         retryButton.isHidden = false
         activityIndicatorView.stopAnimating()
         }
