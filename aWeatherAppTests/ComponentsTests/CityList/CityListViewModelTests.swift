@@ -46,6 +46,16 @@ class CityListViewModelTests: QuickSpec {
                     expect(self.viewModel.numberOfRowsInSection(section: 0)).to(equal(3))
                 }
                 
+                it("triggers content did update when we send in a new user city") {
+                    waitUntil { done in
+                        let tempBag = DisposeBag()
+                        self.viewModel.contentDidUpdate.observeNext {
+                            done()
+                        }.dispose(in: tempBag)
+                        self.userCity.next(City.init(name: "Tokyo", countryISOCode: "JP"))
+                    }
+                }
+                
                 it("returns the correct cellViewModel cities given the indexPath") {
                     let cellViewModel0 =
                         self.viewModel.cellViewModelFor(indexPath: IndexPath(row: 0, section: 0))
