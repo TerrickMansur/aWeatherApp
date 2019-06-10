@@ -28,12 +28,12 @@ class WindInfoViewControllerTests: QuickSpec {
                 it("should always show whatever its view model has as its value") {
                     
                     let speedValueLabel =
-                        self.windInfo.viewCntroller.view
+                        self.windInfo.viewController.view
                             .findSubView(restorationIdentifier: "speedLabel")?
                             .asLabel()
 
                     let degreesValueLabel =
-                        self.windInfo.viewCntroller.view
+                        self.windInfo.viewController.view
                             .findSubView(restorationIdentifier: "degreesLabel")?
                             .asLabel()
                     
@@ -49,12 +49,12 @@ class WindInfoViewControllerTests: QuickSpec {
 
                 it("should set the correct values ") {
                     let speedValueLabel =
-                        self.windInfo.viewCntroller.view
+                        self.windInfo.viewController.view
                             .findSubView(restorationIdentifier: "speedLabel")?
                             .asLabel()
                     
                     let degreesValueLabel =
-                        self.windInfo.viewCntroller.view
+                        self.windInfo.viewController.view
                             .findSubView(restorationIdentifier: "degreesLabel")?
                             .asLabel()
                     

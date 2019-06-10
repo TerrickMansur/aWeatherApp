@@ -15,7 +15,7 @@ import ReactiveKit
 @testable import aWeatherApp
 
 fileprivate class TestableCityListViewModel: CityListViewModelType {
-    
+    var title: String = "Test"
     var contentDidUpdate: Signal<Void, Never>
     var numberOfSection: Int = 88
 
