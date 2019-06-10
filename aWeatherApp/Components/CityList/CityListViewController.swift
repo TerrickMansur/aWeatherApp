@@ -11,6 +11,8 @@ import ReactiveKit
 
 protocol CityListViewModelType {
 
+    var title: String { get }
+    
     var contentDidUpdate: SafeSignal<Void> { get }
     var numberOfSection: Int { get }
     
@@ -37,12 +39,20 @@ class CityListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     var viewModel: CityListViewModelType! {
         didSet {
+            self.title = self.viewModel.title
             self.viewModel.contentDidUpdate.observeNext { [weak self] _ in
                 self?.tableView.reloadData()
             }.dispose(in: self.bag)
         }
     }
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.reactive.selectedRowIndexPath.observeNext { [weak self] indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+        }.dispose(in: self.bag)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel.titleForSection(section: section)
     }

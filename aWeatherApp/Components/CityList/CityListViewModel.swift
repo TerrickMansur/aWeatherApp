@@ -10,6 +10,7 @@ import Foundation
 import ReactiveKit
 
 class CityListViewModel: CityListViewModelType {
+    
 
     var didSelectCity: SafeSignal<City> {
         return self.didSelectIndexPath.map { indexPath in
@@ -21,6 +22,7 @@ class CityListViewModel: CityListViewModelType {
 
     // MARK: CityListViewModelType
 
+    var title: String = "Cities"
     let contentDidUpdate: SafeSignal<Void>
     
     var numberOfSection: Int {
